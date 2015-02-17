@@ -14,17 +14,21 @@ class UsersController < ApplicationController
   def create
     @user = params[:user]
     flash[:error] = ''
+
     if @user[:studentId] =~ /[a-zA-Z]\d{8}/
       @user[:studentId][0] = @user[:studentId][0].upcase
     else
       flash[:error] += create_alert('學號格式不正確')
     end
+
     unless @user[:mobile] =~ /09\d{8}/
       flash[:error] += create_alert('手機格式不正確')
     end
+
     unless @user[:password] == @user[:confirm]
       flash[:error] += create_alert('確認密碼不相符')
     end
+
     @user[:test] = flash[:error]
     if flash[:error].blank?
       render :test

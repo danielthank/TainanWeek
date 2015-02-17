@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206052736) do
+ActiveRecord::Schema.define(version: 20150217132320) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150206052736) do
     t.string   "mobile",     limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "password",   limit: 255
   end
 
 end
