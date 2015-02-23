@@ -7,11 +7,6 @@
     <%= f.text_field :mobile, class: 'form-control', placeholder: '手機', required: true %>
     <%= f.password_field :password, class: 'form-control', placeholder: '密碼', required: true %>
     <%= f.password_field :confirm, class: 'form-control', placeholder: '確認密碼', required: true %>
-    <div class="checkbox">
-      <label>
-        <%= f.check_box :remember %> 記住我
-      </label>
-    </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">送出</button>
   <% end %>
   <%= flash[:error].html_safe unless flash[:error].blank? %>
