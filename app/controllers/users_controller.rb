@@ -1,14 +1,23 @@
 class UsersController < ApplicationController
   def determine
-    id = params[:student_id]
-    @user = User.where(student_id: id)
-    @debug = @user.exists?
-    if @user.exists?
-      @user = @user.first
-      @method = :patch
+    @user = params[:user]
+    if @user[:student_id] =~ /^[a-zA-Z]\d{8}$/
+      @user[:student_id][0] = @user[:student_id][0].upcase
     else
-      @user = User.new(student_id: id)
-      @method = :post
+      flash[:error] = create_alert('學號格式不正確')
+      redirect_to user_login_path
+      return
+    end
+
+
+    require 'digest/md5'
+    userNow = User.where(student_id: @user[:student_id], password: Digest::MD5.hexdigest(@user[:password]))
+    if userNow.blank?
+      flash[:error] = create_alert('學號密碼錯誤')
+      redirect_to user_login_path
+    else
+      session[:user] = {id: userNow.first.id, name: userNow.first.name}
+      redirect_to root_path
     end
   end
   def create
@@ -21,7 +30,7 @@ class UsersController < ApplicationController
       return
     end
 
-    if @user[:student_id] =~ /^[a-zA-Z]\d{8}*/
+    if @user[:student_id] =~ /^[a-zA-Z]\d{8}$/
       @user[:student_id][0] = @user[:student_id][0].upcase
     else
       flash[:error] += create_alert('學號格式不正確')
@@ -53,6 +62,10 @@ class UsersController < ApplicationController
     else
       redirect_to user_new_path
     end
+  end
+  def logout
+    session[:user] = nil
+    redirect_to root_path
   end
   def update
     tmp = user_params

@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   get 'user/new' => 'users#new', as: 'user_new'
   post 'user/new' => 'users#create'
   get 'user/login' => 'users#login', as: 'user_login'
+  post 'user/login' => 'users#determine'
 
-  post 'user/determine' => 'users#determine', as: 'determine_user'
-  post 'user' => 'users#create'
-  patch 'user' => 'users#update'
+  get 'user/logout' => 'users#logout', as: 'user_logout'
 
 end

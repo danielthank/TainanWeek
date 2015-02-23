@@ -1,15 +1,14 @@
 <div class="container">
-  <form class="form-signin">
+  <%= form_for :user, html: {class: 'form-signin'}  do |f| %>
     <h2 class="form-signin-heading">登入</h2>
-    <label for="inputStudent_id" class="sr-only">學號</label>
-    <input type="text" id="inputStudent_id" class="form-control" placeholder="學號" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="密碼" required>
+    <%= f.text_field :student_id, class: 'form-control', placeholder: '學號', required: true, autofocus: true %> 
+    <%= f.password_field :password, class: 'form-control', placeholder: '密碼', required: true %>
     <div class="checkbox">
       <label>
-        <input type="checkbox" value="remember-me"> 記住我
+        <%= f.check_box :remember %> 記住我
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
-  </form>
+  <% end %>
+  <%= flash[:error].html_safe unless flash[:error].blank? %>
 </div>
