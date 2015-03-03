@@ -35,15 +35,6 @@
               </ul>
             </li>
           </ul>
-          <div class="navbar-form navbar-right">
-          <% if session[:user].blank? %>
-            <%= link_to '登入', user_login_path, class: 'btn btn-success' %>
-            <%= link_to '建立帳號', user_new_path, class: 'btn btn-success' %>
-          <% else %>
-            <span class="btn btn-success">Hi, <%= session[:user]["name"] %></span>
-            <%= link_to '登出', user_logout_path, class: 'btn btn-success' %>
-          <% end %>
-          </div>
         </div>
       </div>
     </nav>
