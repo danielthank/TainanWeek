@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'welcome#index'
+<<<<<<< HEAD
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -54,4 +55,10 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+=======
+
+  get 'week' => 'week#index', as: 'week'
+  get 'night' => 'night#index', as: 'night'
+
+>>>>>>> 875e061162084a38aca3cff792f31e07cbc527ce
 end

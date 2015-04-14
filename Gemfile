@@ -1,12 +1,19 @@
 source 'https://rubygems.org'
 
 
+<<<<<<< HEAD
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+=======
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.2.0'
+# Use mysql as the database for Active Record
+gem 'mysql2'
+>>>>>>> 875e061162084a38aca3cff792f31e07cbc527ce
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -14,7 +21,11 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+<<<<<<< HEAD
 gem 'therubyracer', platforms: :ruby
+=======
+# gem 'therubyracer', platforms: :ruby
+>>>>>>> 875e061162084a38aca3cff792f31e07cbc527ce
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -25,6 +36,13 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+<<<<<<< HEAD
+=======
+
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'autoprefixer-rails'
+
+>>>>>>> 875e061162084a38aca3cff792f31e07cbc527ce
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,0 +1,18 @@
+<%= @method %>
+<%= @debug %>
+<%= form_for @user, url: user_path, method: @method do |f| %>
+  <%= f.label :name, "名字" %>
+  <%= f.text_field :name %>
+
+
+  <%= f.label :name, "學號" %>
+  <%= f.text_field :student_id %>
+
+  <%= f.label :name, "系級" %>
+  <%= f.text_field :department %>
+
+  <%= f.label :name, "手機" %>
+  <%= f.text_field :mobile %>
+
+  <%= f.submit %>
+<% end %>

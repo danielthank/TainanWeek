@@ -1,0 +1,13 @@
+<div class="container">
+  <%= form_for :user, html: {class: 'form-signin'}  do |f| %>
+    <h2 class="form-signin-heading">建立帳號</h2>
+    <%= f.text_field :student_id, class: 'form-control', placeholder: '學號', required: true, autofocus: true %> 
+    <%= f.text_field :name, class: 'form-control', placeholder: '姓名', required: true %> 
+    <%= f.text_field :department, class: 'form-control', placeholder: '系級', required: true %>
+    <%= f.text_field :mobile, class: 'form-control', placeholder: '手機', required: true %>
+    <%= f.password_field :password, class: 'form-control', placeholder: '密碼', required: true %>
+    <%= f.password_field :confirm, class: 'form-control', placeholder: '確認密碼', required: true %>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">送出</button>
+  <% end %>
+  <%= flash[:error].html_safe unless flash[:error].blank? %>
+</div>
